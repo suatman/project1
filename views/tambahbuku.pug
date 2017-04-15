@@ -1,0 +1,28 @@
+extends layout
+block content
+    div.panel.panel-primary
+        div.panel-heading
+            h4 Tambah Buku
+        div.panel-body
+            form(action="" method="POST")
+                div.form-group
+                    label.label.control Nama
+                    input(type="text" name="nama" value=data&&data.nama).form-control
+                div.form-group
+                    label.label.control Alamat
+                    input(type="text" name="alamat" value=data&&data.alamat).form-control
+                div.form-group
+                    label.label.control Jenis Kelamin
+                    select.form-control(name="jk")
+                        - var jenis_kelamin = [{name : "Laki-laki",value : "L"},{name : "Perempuan",value : "P"}]
+                        option(value="") Jenis Kelamin
+                        each j in jenis_kelamin
+                            if data
+                                -var selected = data.jenis_kelamin == j.value ? true : false
+                                option(value=j.value selected=selected)=j.name
+                            else
+                                option(value=j.value)=j.name
+                div.form-group
+                    button(type="submit").btn.btn-primary Save
+                    a.btn.btn-default(href="javascript:history.go(-1)") Back
+

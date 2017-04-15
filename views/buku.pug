@@ -1,0 +1,36 @@
+extends layout
+block content
+    div.panel.panel-default
+        div.panel-heading
+            h4 Data Buku
+        div.panel-body
+            a(href="/buku/tambah").btn.btn-lg.btn-primary tambah
+            form(action="/buku/cari" method="GET")
+                div.form-group
+                label.label.control Pencarian
+                input(type="text" name="cari" placeholder="pencarian").form-control
+                input(type="submit" value="cari")
+            br
+            table.table.table-responsive.table-striped
+                thead
+                    th Nomor
+                    th #
+                    th Nama
+                    th Alamat
+                    th Jenis Kelamin
+                    th Dibuat
+                    th *
+                tbody
+                    -let i = 1
+                    each buku in data
+                        tr
+                            td= i++
+                            td= buku.id_anggota
+                            td= buku.nama
+                            td= buku.alamat
+                            td= buku.jenis_kelamin
+                            td= buku.created_at
+                            td
+                                a(href="/buku/" + buku.id_anggota + "/edit").btn.btn-xs.btn-default Edit
+                                a(href="/buku/" + buku.id_anggota + "/delete" onclick="return confirm(\"Apakah Anda Yakin Ingin Menghapus?\")").btn.btn-xs.btn-default delete
+

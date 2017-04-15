@@ -1,0 +1,14 @@
+{
+    "dev":{
+        "host"      : "localhost",
+        "username"  : "root",
+        "password"  : "",
+        "database"  : "nodejs"
+    },
+    "production": {
+        "host"      : "localhost",
+        "username"  : "root",
+        "password"  : "12345",
+        "database"  : "kopdar"
+    }
+}
